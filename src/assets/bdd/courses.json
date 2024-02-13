@@ -1,0 +1,68 @@
+[
+  {
+    "courseId": 0,
+    "courseName": "Mathématiques",
+    "courseCode": "UE-M500",
+    "releaseDate": "2024-02-02",
+    "weight": 5,
+    "description": "Un cours de maths de l'ingénieur passionnant",
+    "content": ["Transformée de Fourier", "Singular Value Decomposition", "Transformée en Z"],
+    "starRating": 5,
+    "imageUrl": "./assets/images/maths.jpg"
+  },
+  {
+    "courseId": 1,
+    "courseName": "Philosophie",
+    "courseCode": "UE-P501",
+    "releaseDate": "2024-02-02",
+    "weight": 5,
+    "description": "Un cours de philosophie donné par Platon en personne",
+    "content": ["Idéalisme et Réel", "Vérité et perception", "Full Métal ALchimist : une allégorie de la vérité"],
+    "starRating": 4,
+    "imageUrl": "./assets/images/philo.jpg"
+  },
+  {
+    "courseId": 2,
+    "courseName": "Chimie",
+    "courseCode": "UE-C502",
+    "releaseDate": "2024-01-03",
+    "weight": 2,
+    "description": "Un cours de maths de l'ingénieur passionnant",
+    "content": ["Sytnhèse de meths pour les nuls", "Les explosions", "Les crèmes de beauté"],
+    "starRating": 1,
+    "imageUrl": "./assets/images/chimie.jpg"
+  },
+  {
+    "courseId": 3,
+    "courseName": "Histoire",
+    "courseCode": "UE-H503",
+    "releaseDate": "2024-01-03",
+    "weight": 4,
+    "description": "La connaissance de l'histoire permet de ne pas reproduire les erreurs passées, et pourtant...",
+    "content": ["World War 1", "World War 2", "World War Capitalist"],
+    "starRating": 2,
+    "imageUrl": "./assets/images/histoire.jpg"
+  },
+  {
+    "courseId": 4,
+    "courseName": "Physique",
+    "courseCode": "UE-P504",
+    "releaseDate": "2024-04-15",
+    "weight": 3,
+    "description": "Un cours de physique électronique comme on aime",
+    "content": ["ALI", "Transistor", "Condensateur et Bobines"],
+    "starRating": 3,
+    "imageUrl": "./assets/images/physique.jpg"
+  },
+  {
+    "courseId": 5,
+    "courseName": "Sport",
+    "courseCode": "UE-S505",
+    "releaseDate": "2024-02-02",
+    "weight": 1,
+    "description": "Il faut se défouler après tout ce savoir",
+    "content": ["Badmington", "Course à obstacle", "3e mi-temps"],
+    "starRating": 5,
+    "imageUrl": "./assets/images/sport.jpg"
+  }
+]
