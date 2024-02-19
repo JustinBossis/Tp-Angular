@@ -23,3 +23,9 @@
 <div *ngFor="let item of imageUrls; index as i">
     <img [src]="imageUrls[i]" [title]="item" [style.width.px]="mathCoursePic.imageWidth">
 </div>    
+
+<hr>
+
+<div *ngFor="let item of courseList">
+    <img [src]="item.imageUrl" [title]="item.displayCourse()" [style.width.px]="mathCoursePic.imageWidth">
+</div>    
