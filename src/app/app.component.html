@@ -20,12 +20,15 @@
 </button>
 <h2 *ngIf="isVisible"> I am visible</h2>
 
-<div *ngFor="let item of imageUrls; index as i">
-    <img [src]="imageUrls[i]" [title]="item" [style.width.px]="mathCoursePic.imageWidth">
-</div>    
+<table>
+    <td *ngFor="let item of imageUrls; index as i">
+        <img [src]="imageUrls[i]" [title]="item" [style.width.px]="mathCoursePic.imageWidth">
+    </td>    
+</table>
 
 <hr>
-
-<div *ngFor="let item of courseList">
-    <img [src]="item.imageUrl" [title]="item.displayCourse()" [style.width.px]="mathCoursePic.imageWidth">
-</div>    
+<table>
+    <td *ngFor="let item of courseList">
+        <img [src]="item.imageUrl" [title]="item.displayCourse()" [style.width.px]="mathCoursePic.imageWidth">
+    </td>
+</table>
