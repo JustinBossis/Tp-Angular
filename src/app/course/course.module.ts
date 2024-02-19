@@ -12,6 +12,9 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
   ],
   imports: [
     SharedModule
+  ],
+  exports: [
+    CourseListComponent
   ]
 })
 export class CourseModule { }

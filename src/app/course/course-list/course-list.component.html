@@ -1,1 +1,27 @@
-<p>course-list works!</p>
+<h2>{{title}}</h2>
+<hr>
+<table class="table">
+    <thead>
+        <tr>
+            <th><button (click)="toggleVisibility()" type="button" class="btn btn-primary">{{ isVisible?'Hide':'Show'}} image</button></th>
+            <th>Course</th>
+            <th>Code</th>
+            <th>Status</th>
+            <th>Weight (over 20)</th>
+            <th>5 Star Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of courseList">
+            <td><img *ngIf="isVisible" [src]="item.imageUrl" [title]="item.displayCourse()" [style.width.px]="50"></td>
+            <td>{{item.courseName}}</td>
+            <td>{{item.courseCode}}</td>
+            <td>{{item.releaseDate|date:"shortDate"}}</td>
+            <td>{{item.weight}}</td>
+            <td>
+                <app-shared-star-rating [rating]="item.starRating" (ratingClicked)='onRatingClicked($event)'>
+                </app-shared-star-rating>
+            </td>
+        </tr>
+    </tbody>
+</table>
