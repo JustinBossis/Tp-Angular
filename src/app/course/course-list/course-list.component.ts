@@ -1,25 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import * as courseData from '../../../assets/DB/courses.json';
+import { Component } from '@angular/core';
 import { Course } from '../../model/course';
+import { CourseService } from '../course.service';
 
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
   styleUrls: ['./course-list.component.css']
 })
-export class CourseListComponent implements OnInit{
+export class CourseListComponent{
+
+  constructor(private course: CourseService){
+    this.courseList = course.courseList;
+  }
 
   //Attributs
   title = 'Courses List';
   courseList: Course[] = []
-  courses: any[] = courseData;
   isVisible: boolean = true;
 
-  ngOnInit(): void {
-    for(let i=0; i < this.courses.length; i++){
-      this.courseList.push(new Course(this.courses[i]))
-    }
-  }
 
   //Method
 
