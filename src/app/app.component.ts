@@ -1,17 +1,13 @@
-import { AfterContentInit, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
-import * as courseData from '../assets/DB/courses.json';
-import { Course } from './model/course';
+import { AfterContentInit, AfterViewInit, Component, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy, AfterViewInit, AfterContentInit{
+export class AppComponent implements OnDestroy, AfterViewInit, AfterContentInit{
 
   //Attributs
-  courseList: Course[] = []
-  courses: any[] = courseData;
   title = 'tpApp';
   helloText = "Hello World";
   mathCoursePic : any = {
@@ -48,12 +44,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit, AfterCont
 
   //Method life cycle
 
-  ngOnInit(): void {
-    for(let i=0; i < this.courses.length; i++){
-      this.courseList.push(new Course(this.courses[i]))
-    }
-  }
-
   ngOnDestroy(): void {
     console.log("destroy")
   }
@@ -64,9 +54,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit, AfterCont
 
   ngAfterContentInit(): void {
     console.log("content")
-    this.courseList.forEach((course) => {
-      console.log(course.displayCourse());
-    })
   }
 
   

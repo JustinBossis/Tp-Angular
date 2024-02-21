@@ -1,0 +1,76 @@
+<div class="container">
+    <form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)">
+        <div class="row">
+            <div class="form-group col-9">
+                <label for="coursename">Course Name</label><br>
+                <input required minlength="5" maxlength="13"
+                type="text" name="coursename" class="form-control"
+                #coursename="ngModel" [(ngModel)]="courseService.newCourse.courseName">
+            </div>
+            
+            <div class="form-group col-3">
+                <label for="coursecode">Course Code</label><br>
+                <input required minlength="7" maxlength="7"
+                type="text" name="coursecode" class="form-control"
+                #coursecode="ngModel" [(ngModel)]="courseService.newCourse.courseCode">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="form-group col-5">
+                <label for="releasedate">Release Date</label><br>
+                <input required type="date" name="releasedate" class="form-control"
+                #releasedate="ngModel" [(ngModel)]="courseService.newCourse.releaseDate">
+            </div>
+            <div class="form-group col-4">
+                <label for="weight">Weight</label><br>
+                <input required type="number" name="weight" class="form-control"
+                #weight="ngModel" [(ngModel)]="courseService.newCourse.weight">
+            </div>
+            <div class="form-group col-3">
+                <label for="starrating">Rate</label><br>
+                <label>
+                    <input required checked type="radio" name="starrating" class="form-control" value="1" style="display: none;"
+                    #starrating="ngModel" [(ngModel)]="courseService.newCourse.starRating" (change)="changeRating($event, 1)">
+                    <span class="fa fa-star form-star"></span>
+                </label>
+                <label>
+                    <input required checked type="radio" name="starrating" class="form-control" value="2" style="display: none;"
+                    #starrating="ngModel" [(ngModel)]="courseService.newCourse.starRating" (change)="changeRating($event, 2)">
+                    <span class="fa fa-star form-star starDisabled" style="cursor: pointer"></span>
+                </label>
+                <label>
+                    <input required checked type="radio" name="starrating" class="form-control" value="3" style="display: none;"
+                    #starrating="ngModel" [(ngModel)]="courseService.newCourse.starRating" (change)="changeRating($event, 3)">
+                    <span class="fa fa-star form-star starDisabled" style="cursor: pointer"></span>
+                </label>
+                <label>
+                    <input required checked type="radio" name="starrating" class="form-control" value="4" style="display: none;"
+                    #starrating="ngModel" [(ngModel)]="courseService.newCourse.starRating" (change)="changeRating($event, 4)">
+                    <span class="fa fa-star form-star starDisabled" style="cursor: pointer"></span>
+                </label>
+                <label>
+                    <input required checked type="radio" name="starrating" class="form-control" value="5" style="display: none;"
+                    #starrating="ngModel" [(ngModel)]="courseService.newCourse.starRating" (change)="changeRating($event, 5)">
+                    <span class="fa fa-star form-star starDisabled" style="cursor: pointer"></span>
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label><br>
+            <input required minlength="5"
+            type="text" name="description" class="form-control"
+            #description="ngModel" [(ngModel)]="courseService.newCourse.description">
+        </div>
+        <div class="form-group">
+            <label for="imageurl">Image</label><br>
+            <label *ngFor="let item of courseService.coursesImage; let i = index" >
+                <input required checked type="radio" name="imageurl" class="form-control disabledImage" [value]="item" style="display: none;"
+                #starrating="ngModel" [(ngModel)]="courseService.newCourse.imageUrl" (change)="changeImageURL($event, i)">
+                <img [src]="item" [style.width.px]="50" class="formImageChoice disabledImage">
+            </label>
+        </div>
+        <button [disabled]="courseForm.pristine || courseForm.invalid" class="btn btn-primary" type="submit">Submit
+        </button>
+    </form>
+</div>

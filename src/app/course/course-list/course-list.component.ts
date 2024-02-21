@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Course } from '../../model/course';
 import { CourseService } from '../course.service';
 
 @Component({
@@ -9,14 +8,16 @@ import { CourseService } from '../course.service';
 })
 export class CourseListComponent{
 
+
   constructor(private course: CourseService){
-    this.courseList = course.courseList;
+    this.courseService = course;
   }
 
   //Attributs
   title = 'Courses List';
-  courseList: Course[] = []
+  courseService: CourseService
   isVisible: boolean = true;
+  isFormVisible: boolean = false;
 
 
   //Method
@@ -25,8 +26,16 @@ export class CourseListComponent{
     this.isVisible = !this.isVisible;
   }
 
+  toggleFormVisibility(): void {
+    this.isFormVisible = !this.isFormVisible;
+  }
+
   onRatingClicked(message: string): void {
     console.log(message)
+  }
+
+  onFormSubmitClicked(message: string) {
+    this.toggleFormVisibility()
   }
 
 }
