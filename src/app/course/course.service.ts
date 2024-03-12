@@ -1,16 +1,16 @@
-import { Injectable } from '@angular/core';
-import * as courseData from '../../assets/DB/courses.json';
+import { Injectable, OnInit } from '@angular/core';
 import { Course } from '../model/course';
 import { ICourse } from '../model/iCourse';
+import { BehaviorSubject, Observable, catchError, tap } from 'rxjs';
+import { HttpClient } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
-export class CourseService {
-
-  courseList: Course[] = []
-  courses: any[] = courseData;
+export class CourseService{
+  courses: ICourse[] = []
   newCourse: Course = new Course({"courseCode": "UE-", "content": [], "starRating": 1, "courseId":0});
+  courseList = new BehaviorSubject<Course[]>([]);
 
   coursesImage: any[] = [
     "assets/images/maths.jpg",
@@ -22,14 +22,21 @@ export class CourseService {
     "assets/images/physique.jpg"
   ];
 
-  constructor() {
-    for(let i=0; i < this.courses.length; i++){
-      this.courseList.push(new Course(this.courses[i]))
-    }
+  constructor(private http: HttpClient) {
+    this.getCourses().subscribe(courses => {
+      for(let course of courses){
+        this.courseList.getValue().push(new Course(course))
+      }
+    })
   }
 
   addCourseIntoList(course: ICourse){
-    this.courseList.push(new Course(course))
+    this.courseList.getValue().push(new Course(course))
     this.newCourse = new Course({"courseCode": "UE-", "content": [], "starRating": 1, "courseId":0});
   }
+
+  getCourses(): Observable<ICourse[]>{
+    return this.http.get<ICourse[]>('assets/DB/courses.json')
+  }
+
 }

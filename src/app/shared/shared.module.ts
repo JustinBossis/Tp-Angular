@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SharedStarRatingComponent } from './shared-star-rating/shared-star-rating.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -16,7 +17,8 @@ import { SharedStarRatingComponent } from './shared-star-rating/shared-star-rati
   exports: [
     FormsModule,
     CommonModule,
-    SharedStarRatingComponent
+    SharedStarRatingComponent,
+    HttpClientModule
   ]
 })
 export class SharedModule { }
