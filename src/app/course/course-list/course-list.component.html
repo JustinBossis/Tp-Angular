@@ -16,7 +16,7 @@
     <tbody>
         <tr *ngFor="let item of courseService.courseList |async">
             <td><img *ngIf="isVisible" [src]="item.imageUrl" [title]="item.displayCourse()" [style.width.px]="50"></td>
-            <td>{{item.courseName}}</td>
+            <td><a [routerLink]="['/course',''+item.courseId]">{{ item.courseName }} </a></td>
             <td>{{item.courseCode}}</td>
             <td>{{item.releaseDate|date:"shortDate"}}</td>
             <td>{{item.weight}}</td>

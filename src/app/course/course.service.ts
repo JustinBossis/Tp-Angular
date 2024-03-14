@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Course } from '../model/course';
 import { ICourse } from '../model/iCourse';
-import { BehaviorSubject, Observable, catchError, tap } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, delay, filter, map, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http'
 
 @Injectable({
@@ -37,6 +37,12 @@ export class CourseService{
 
   getCourses(): Observable<ICourse[]>{
     return this.http.get<ICourse[]>('assets/DB/courses.json')
+  }
+
+  getCourse(id: String): Observable<ICourse | undefined>{
+    return this.http.get<ICourse[]>('assets/DB/courses.json').pipe(map(items => 
+      items.find(p => p.courseId.toString() == id)
+    ), delay(5000));
   }
 
 }

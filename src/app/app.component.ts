@@ -1,11 +1,11 @@
-import { AfterContentInit, AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnDestroy, AfterViewInit, AfterContentInit{
+export class AppComponent{
 
   //Attributs
   title = 'tpApp';
@@ -41,24 +41,5 @@ export class AppComponent implements OnDestroy, AfterViewInit, AfterContentInit{
   toggleVisibility(): void {
     this.isVisible = !this.isVisible;
   }
-
-  //Method life cycle
-
-  ngOnDestroy(): void {
-    console.log("destroy")
-  }
-
-  ngAfterViewInit(): void {
-    console.log("view")
-  }
-
-  ngAfterContentInit(): void {
-    console.log("content")
-  }
-
-  
-  
-  
-  
   
 }
